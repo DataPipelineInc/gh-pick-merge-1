@@ -57,7 +57,7 @@ async fn pick_commits(pr_number: i64) -> Vec<String> {
   let commits = github_get_commits_in_pr(pr_number).await;
 
   for commit_hash in commits {
-    let output = git(["cherry-pick", commit_hash.as_str(), "--allow-empty", "-e", "with ci"].to_vec());
+    let output = git(["cherry-pick", commit_hash.as_str(), "-e", "with ci"].to_vec());
 
     match output {
       Some(output) => {
