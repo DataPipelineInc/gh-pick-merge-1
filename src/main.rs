@@ -7,6 +7,7 @@ mod types;
 
 use crate::branch::*;
 use crate::github_event::*;
+use crate::helpers::git;
 use crate::helpers::git_setup;
 use crate::helpers::match_pick_merge_labels;
 use types::*;
@@ -27,8 +28,7 @@ async fn main() {
 
     let dest_branch = label.split("/").last().expect("Not match dest branch");
 
-    // TODO: fix fetch origin branch
-    // fetch_origin_branch(dest_branch);
+    git(["fetch", "origin", dest_branch].to_vec());
 
     pick_pr_to_dest_branch(
       github_event.number,
