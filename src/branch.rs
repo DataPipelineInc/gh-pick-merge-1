@@ -82,11 +82,3 @@ async fn pick_commits(pr_number: i64) -> Vec<String> {
 
   not_matched_hash
 }
-
-pub fn fetch_origin_branch(branch: &str) {
-  let option = git(["fetch", "origin", branch].to_vec());
-
-  if option.is_none() {
-    panic!("Fetch origin branch failed");
-  }
-}
