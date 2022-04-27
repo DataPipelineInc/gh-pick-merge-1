@@ -17,6 +17,7 @@ pub async fn pick_pr_to_dest_branch(pr_number: i64, pr_title: &String, dest_bran
     comment,
   )
   .await;
+  
   if create_branch_result.not_matched_hash.len() > 0 {
     github_pull_request_push_comment(
       pull_request_id,
