@@ -28,6 +28,7 @@ async fn main() {
 
     let head_branch = github_event.pull_request.head._ref.as_str();
     let dest_branch = label.split("/").last().expect("Not match dest branch");
+
     git(["fetch", "origin", head_branch].to_vec());
     git(["fetch", "origin", dest_branch].to_vec());
 
