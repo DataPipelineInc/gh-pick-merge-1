@@ -23,6 +23,7 @@ pub struct GithubActionPullRequestLabel {
 pub struct GithubActionPullRequest {
   pub number: i64,
   pub title: String,
+  pub head: GithubActionPullRequestBranch,
   pub base: GithubActionPullRequestBranch,
   pub labels: Vec<GithubActionPullRequestLabel>,
 }
